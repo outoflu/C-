@@ -1,0 +1,140 @@
+[
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\camera.c.obj -c E:\\Rendener\\renderer\\core\\camera.c",
+  "file": "E:/Rendener/renderer/core/camera.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/camera.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\darray.c.obj -c E:\\Rendener\\renderer\\core\\darray.c",
+  "file": "E:/Rendener/renderer/core/darray.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/darray.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\draw2d.c.obj -c E:\\Rendener\\renderer\\core\\draw2d.c",
+  "file": "E:/Rendener/renderer/core/draw2d.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/draw2d.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\graphics.c.obj -c E:\\Rendener\\renderer\\core\\graphics.c",
+  "file": "E:/Rendener/renderer/core/graphics.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/graphics.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\image.c.obj -c E:\\Rendener\\renderer\\core\\image.c",
+  "file": "E:/Rendener/renderer/core/image.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/image.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\maths.c.obj -c E:\\Rendener\\renderer\\core\\maths.c",
+  "file": "E:/Rendener/renderer/core/maths.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/maths.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\mesh.c.obj -c E:\\Rendener\\renderer\\core\\mesh.c",
+  "file": "E:/Rendener/renderer/core/mesh.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/mesh.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\private.c.obj -c E:\\Rendener\\renderer\\core\\private.c",
+  "file": "E:/Rendener/renderer/core/private.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/private.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\scene.c.obj -c E:\\Rendener\\renderer\\core\\scene.c",
+  "file": "E:/Rendener/renderer/core/scene.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/scene.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\skeleton.c.obj -c E:\\Rendener\\renderer\\core\\skeleton.c",
+  "file": "E:/Rendener/renderer/core/skeleton.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/skeleton.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\core\\texture.c.obj -c E:\\Rendener\\renderer\\core\\texture.c",
+  "file": "E:/Rendener/renderer/core/texture.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/core/texture.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\scenes\\blinn_scenes.c.obj -c E:\\Rendener\\renderer\\scenes\\blinn_scenes.c",
+  "file": "E:/Rendener/renderer/scenes/blinn_scenes.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/scenes/blinn_scenes.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\scenes\\pbr_scenes.c.obj -c E:\\Rendener\\renderer\\scenes\\pbr_scenes.c",
+  "file": "E:/Rendener/renderer/scenes/pbr_scenes.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/scenes/pbr_scenes.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\scenes\\scene_helper.c.obj -c E:\\Rendener\\renderer\\scenes\\scene_helper.c",
+  "file": "E:/Rendener/renderer/scenes/scene_helper.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/scenes/scene_helper.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\shaders\\blinn_shader.c.obj -c E:\\Rendener\\renderer\\shaders\\blinn_shader.c",
+  "file": "E:/Rendener/renderer/shaders/blinn_shader.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/shaders/blinn_shader.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\shaders\\cache_helper.c.obj -c E:\\Rendener\\renderer\\shaders\\cache_helper.c",
+  "file": "E:/Rendener/renderer/shaders/cache_helper.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/shaders/cache_helper.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\shaders\\pbr_shader.c.obj -c E:\\Rendener\\renderer\\shaders\\pbr_shader.c",
+  "file": "E:/Rendener/renderer/shaders/pbr_shader.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/shaders/pbr_shader.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\shaders\\skybox_shader.c.obj -c E:\\Rendener\\renderer\\shaders\\skybox_shader.c",
+  "file": "E:/Rendener/renderer/shaders/skybox_shader.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/shaders/skybox_shader.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\tests\\test_blinn.c.obj -c E:\\Rendener\\renderer\\tests\\test_blinn.c",
+  "file": "E:/Rendener/renderer/tests/test_blinn.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/tests/test_blinn.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\tests\\test_helper.c.obj -c E:\\Rendener\\renderer\\tests\\test_helper.c",
+  "file": "E:/Rendener/renderer/tests/test_helper.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/tests/test_helper.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\tests\\test_pbr.c.obj -c E:\\Rendener\\renderer\\tests\\test_pbr.c",
+  "file": "E:/Rendener/renderer/tests/test_pbr.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/tests/test_pbr.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\main.c.obj -c E:\\Rendener\\renderer\\main.c",
+  "file": "E:/Rendener/renderer/main.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/main.c.obj"
+},
+{
+  "directory": "E:/Rendener/build",
+  "command": "D:\\MINGW\\bin\\gcc.exe   -O3 -DNDEBUG -std=c90 -flto=auto -fno-fat-lto-objects -Wall -Wextra -pedantic -ffast-math -o CMakeFiles\\Viewer.dir\\renderer\\platforms\\win32.c.obj -c E:\\Rendener\\renderer\\platforms\\win32.c",
+  "file": "E:/Rendener/renderer/platforms/win32.c",
+  "output": "CMakeFiles/Viewer.dir/renderer/platforms/win32.c.obj"
+}
+]
