@@ -52,6 +52,7 @@ struct program_t {
     _Varyings out_varyings[MAX_VARYINGS];
 
     program_t(vertex_shader_t,fragment_shader_t,int double_sided,int enable_blend);
+    //program_t();
     _Attribs get_attribs(int nth_vertex);
     _Uniforms get_uniforms();
 

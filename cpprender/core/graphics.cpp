@@ -65,9 +65,43 @@ namespace core
     }
 
     template<typename _Attribs, typename _Varyings, typename _Uniforms>
-    program_t<_Attribs, _Varyings, _Uniforms>::program_t(vertex_shader_t, fragment_shader_t, int double_sided, int enable_blend)
+    program_t<_Attribs, _Varyings, _Uniforms>::program_t(vertex_shader_t VS, fragment_shader_t FS, int _double_sided, int _enable_blend)
     {
-        
+        assert(sizeof(_Varyings)%sizeof(float)==0);
+        this->vertex_shader=VS;
+        this->fragment_shader=FS;
+        this->double_sided=_double_sided;
+        this->enable_blend=_enable_blend;
+
+        //clean shader_attribs
+        memset(shader_attribs,0,sizeof(shader_attribs));
+
+        //clean varyings
+        memset(&shader_varyings,0,sizeof(shader_varyings));
+
+        //clean uniforms
+        memset(&shader_uniforms,0,sizeof(shader_uniforms));
+
+        //clean in_varyings
+        memset(in_varyings,0,sizeof(in_coords));
+
+        //clean out_varyings
+        memset(out_varyings,0,sizeof(out_varyings));
+
+    }
+
+
+    template<typename _Attribs, typename _Varyings, typename _Uniforms>
+    _Attribs program_t<_Attribs, _Varyings, _Uniforms>::get_attribs(int nth_vertex)
+    {
+        assert(nth_vertex>=0&&nth_vertex<3);
+        return shader_attribs[nth_vertex];
+    }
+
+    template<typename _Attribs, typename _Varyings, typename _Uniforms>
+    _Uniforms program_t<_Attribs, _Varyings, _Uniforms>::get_uniforms()
+    {
+        return shader_uniforms;
     }
 
 } // core
