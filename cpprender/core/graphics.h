@@ -2,7 +2,7 @@
 #define _GRAPHICS_H
 
 #include "maths.h"
-
+#include <memory>
 namespace core{
 
 class framebuffer_t{
@@ -23,8 +23,8 @@ public:
     void clear_color(vec4_t _color);
     void clear_depth(float _clear);
 
-    unsigned char* color_buffer;
-    float* depth_buffer;
+    std::unique_ptr<unsigned char[]> color_buffer;
+    std::unique_ptr<float[]> depth_buffer;
 };
 
 
