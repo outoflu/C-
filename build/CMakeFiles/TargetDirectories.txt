@@ -1,3 +1,0 @@
-E:/Rendener/build/CMakeFiles/Viewer.dir
-E:/Rendener/build/CMakeFiles/edit_cache.dir
-E:/Rendener/build/CMakeFiles/rebuild_cache.dir
