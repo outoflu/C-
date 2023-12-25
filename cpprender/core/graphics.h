@@ -34,8 +34,8 @@ public:
 
 template <typename _Attribs,typename _Varyings,typename _Uniforms>
 struct program_t {
-    using vertex_shader_t=vec4_t(*)(_Attribs,_Varyings,_Uniforms);
-    using fragment_shader_t=vec4_t(*)(_Varyings,_Uniforms,int&,int);
+    using vertex_shader_t=vec4_t(*)(_Attribs&,_Varyings&,_Uniforms&);
+    using fragment_shader_t=vec4_t(*)(_Varyings&,_Uniforms&,int&,int);
     vertex_shader_t vertex_shader;
     fragment_shader_t fragment_shader;
 

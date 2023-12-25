@@ -25,78 +25,80 @@ void float_print(const char *name, float f);
 
 /* vec2 related functions */
 vec2_t vec2_new(float x, float y);
-vec2_t vec2_min(vec2_t a, vec2_t b);
-vec2_t vec2_max(vec2_t a, vec2_t b);
-vec2_t vec2_add(vec2_t a, vec2_t b);
-vec2_t vec2_sub(vec2_t a, vec2_t b);
-vec2_t vec2_mul(vec2_t v, float factor);
-vec2_t vec2_div(vec2_t v, float divisor);
-float vec2_length(vec2_t v);
-float vec2_edge(vec2_t start, vec2_t end, vec2_t v);
-void vec2_print(const char *name, vec2_t v);
+vec2_t vec2_min(const vec2_t& a, const vec2_t& b);
+vec2_t vec2_max(const vec2_t& a, const vec2_t& b);
+vec2_t vec2_add(const vec2_t& a, const vec2_t& b);
+vec2_t vec2_sub(const vec2_t& a, const vec2_t& b);
+vec2_t vec2_mul(const vec2_t& v, float factor);
+vec2_t vec2_div(const vec2_t& v, float divisor);
+float vec2_length(const vec2_t& v);
+float vec2_edge(const vec2_t& start, const vec2_t& end, const vec2_t& v);
+void vec2_print(const char *name, const vec2_t& v);
 
 /* vec3 related functions */
 vec3_t vec3_new(float x, float y, float z);
-vec3_t vec3_from_vec4(vec4_t v);
-vec3_t vec3_min(vec3_t a, vec3_t b);
-vec3_t vec3_max(vec3_t a, vec3_t b);
-vec3_t vec3_add(vec3_t a, vec3_t b);
-vec3_t vec3_sub(vec3_t a, vec3_t b);
-vec3_t vec3_mul(vec3_t v, float factor);
-vec3_t vec3_div(vec3_t v, float divisor);
-vec3_t vec3_negate(vec3_t v);
-float vec3_length(vec3_t v);
-vec3_t vec3_normalize(vec3_t v);
-float vec3_dot(vec3_t a, vec3_t b);
-vec3_t vec3_cross(vec3_t a, vec3_t b);
-vec3_t vec3_lerp(vec3_t a, vec3_t b, float t);
-vec3_t vec3_saturate(vec3_t v);
-vec3_t vec3_modulate(vec3_t a, vec3_t b);
-void vec3_print(const char *name, vec3_t v);
+vec3_t vec3_from_vec4(const vec4_t& v);
+vec3_t vec3_min(const vec3_t& a, const vec3_t& b);
+vec3_t vec3_max(const vec3_t& a, const vec3_t& b);
+vec3_t vec3_add(const vec3_t& a, const vec3_t& b);
+vec3_t vec3_sub(const vec3_t& a, const vec3_t& b);
+vec3_t vec3_mul(const vec3_t& v, float factor);
+vec3_t vec3_div(const vec3_t& v, float divisor);
+vec3_t vec3_negate(const vec3_t& v);
+float vec3_length(const vec3_t& v);
+vec3_t vec3_normalize(const vec3_t& v);
+float vec3_dot(const vec3_t& a, const vec3_t& b);
+vec3_t vec3_cross(const vec3_t& a, const vec3_t& b);
+vec3_t vec3_lerp(const vec3_t& a, const vec3_t& b, float t);
+vec3_t vec3_saturate(const vec3_t& v);
+vec3_t vec3_modulate(const vec3_t& a, const vec3_t& b);
+void vec3_print(const char *name, const vec3_t& v);
 
 /* vec4 related functions */
-vec4_t vec4_new(float x, float y, float z, float w);
-vec4_t vec4_from_vec3(vec3_t v, float w);
-vec4_t vec4_add(vec4_t a, vec4_t b);
-vec4_t vec4_sub(vec4_t a, vec4_t b);
-vec4_t vec4_mul(vec4_t v, float factor);
-vec4_t vec4_div(vec4_t v, float divisor);
-vec4_t vec4_lerp(vec4_t a, vec4_t b, float t);
-vec4_t vec4_saturate(vec4_t v);
-vec4_t vec4_modulate(vec4_t a, vec4_t b);
-void vec4_print(const char *name, vec4_t v);
+vec4_t vec4_new(float x, float y, float z, float w); // 不需要修改，因为返回值是 vec4_t
+vec4_t vec4_from_vec3(const vec3_t& v, float w); // 使用 const vec3_t & 替换 vec3_t
+vec4_t vec4_add(const vec4_t& a, const vec4_t& b); // 使用 const vec4_t & 替换 vec4_t
+vec4_t vec4_sub(const vec4_t& a, const vec4_t& b); // 使用 const vec4_t & 替换 vec4_t
+vec4_t vec4_mul(const vec4_t& v, float factor); // 使用 const vec4_t & 替换 vec4_t
+vec4_t vec4_div(const vec4_t& v, float divisor); // 使用 const vec4_t & 替换 vec4_t
+vec4_t vec4_lerp(const vec4_t& a, const vec4_t& b, float t); // 使用 const vec4_t & 替换 vec4_t
+vec4_t vec4_saturate(const vec4_t& v); // 使用 const vec4_t & 替换 vec4_t
+vec4_t vec4_modulate(const vec4_t& a, const vec4_t& b); // 使用 const vec4_t & 替换 vec4_t
+void vec4_print(const char *name, const vec4_t& v); // 使用 const vec4_t & 替换 vec4_t
+
 
 /* quat related functions */
-quat_t quat_new(float x, float y, float z, float w);
-float quat_dot(quat_t a, quat_t b);
-float quat_length(quat_t q);
-quat_t quat_normalize(quat_t q);
-quat_t quat_slerp(quat_t a, quat_t b, float t);
-void quat_print(const char *name, quat_t q);
+quat_t quat_new(float x, float y, float z, float w); // 不需要修改，因为返回值是 quat_t
+float quat_dot(const quat_t& a, const quat_t& b); // 使用 const quat_t & 替换 quat_t
+float quat_length(const quat_t& q); // 使用 const quat_t & 替换 quat_t
+quat_t quat_normalize(const quat_t& q); // 使用 const quat_t & 替换 quat_t
+quat_t quat_slerp(const quat_t& a, const quat_t& b_in, float t); // 使用 const quat_t & 替换 quat_t
+void quat_print(const char *name, const quat_t& q); // 使用 const quat_t & 替换 quat_t
+
 
 /* mat3 related functions */
-mat3_t mat3_identity(void);
-mat3_t mat3_from_cols(vec3_t c0, vec3_t c1, vec3_t c2);
-mat3_t mat3_from_mat4(mat4_t m);
-mat3_t mat3_combine(mat3_t m[4], vec4_t weights);
-vec3_t mat3_mul_vec3(mat3_t m, vec3_t v);
-mat3_t mat3_mul_mat3(mat3_t a, mat3_t b);
-mat3_t mat3_inverse(mat3_t m);
-mat3_t mat3_transpose(mat3_t m);
-mat3_t mat3_inverse_transpose(mat3_t m);
-void mat3_print(const char *name, mat3_t m);
+mat3_t mat3_identity(void); // 不需要修改，因为没有参数
+mat3_t mat3_from_cols(const vec3_t& c0, const vec3_t& c1, const vec3_t& c2); // 使用 const vec3_t & 替换 vec3_t
+mat3_t mat3_from_mat4(const mat4_t& m); // 使用 const mat4_t & 替换 mat4_t
+mat3_t mat3_combine(const mat3_t m[4], const vec4_t& weights); // 使用 const mat3_t m[4] 和 const vec4_t & 替换 mat3_t m[4] 和 vec4_t
+vec3_t mat3_mul_vec3(const mat3_t& m, const vec3_t& v); // 使用 const mat3_t & 和 const vec3_t & 替换 mat3_t 和 vec3_t
+mat3_t mat3_mul_mat3(const mat3_t& a, const mat3_t& b); // 使用 const mat3_t & 替换 mat3_t
+mat3_t mat3_inverse(const mat3_t& m); // 使用 const mat3_t & 替换 mat3_t
+mat3_t mat3_transpose(const mat3_t& m); // 使用 const mat3_t & 替换 mat3_t
+mat3_t mat3_inverse_transpose(const mat3_t& m); // 使用 const mat3_t & 替换 mat3_t
+void mat3_print(const char *name, const mat3_t& m); // 使用 const mat3_t & 替换 mat3_t
 
 /* mat4 related functions */
 mat4_t mat4_identity(void);
-mat4_t mat4_from_quat(quat_t q);
-mat4_t mat4_from_trs(vec3_t t, quat_t r, vec3_t s);
-mat4_t mat4_combine(mat4_t m[4], vec4_t weights);
-vec4_t mat4_mul_vec4(mat4_t m, vec4_t v);
-mat4_t mat4_mul_mat4(mat4_t a, mat4_t b);
-mat4_t mat4_inverse(mat4_t m);
-mat4_t mat4_transpose(mat4_t m);
-mat4_t mat4_inverse_transpose(mat4_t m);
-void mat4_print(const char *name, mat4_t m);
+mat4_t mat4_from_quat(const quat_t& q);
+mat4_t mat4_from_trs(const vec3_t& t, const quat_t& r, const vec3_t& s);
+mat4_t mat4_combine(const mat4_t m[4],const vec4_t& weights);
+vec4_t mat4_mul_vec4(const mat4_t& m, const vec4_t& v);
+mat4_t mat4_mul_mat4(const mat4_t& a, const mat4_t& b);
+mat4_t mat4_inverse(const mat4_t& m);
+mat4_t mat4_transpose(const mat4_t& m);
+mat4_t mat4_inverse_transpose(const mat4_t& m);
+void mat4_print(const char *name, const mat4_t& m);
 
 /* transformation matrices */
 mat4_t mat4_translate(float tx, float ty, float tz);
