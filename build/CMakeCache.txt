@@ -21,15 +21,9 @@ CMAKE_ADDR2LINE:FILEPATH=D:/MINGW/bin/addr2line.exe
 CMAKE_AR:FILEPATH=D:/MINGW/bin/ar.exe
 
 //No help, variable specified on the command line.
-CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_BUILD_TYPE:STRING=Debug
 
-//Enable/Disable color output during build.
-CMAKE_COLOR_MAKEFILE:BOOL=ON
-
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:FILEPATH=D:/MINGW/bin/g++.exe
-
-//No help, variable specified on the command line.
+//C compiler
 CMAKE_C_COMPILER:FILEPATH=D:/MINGW/bin/gcc.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
@@ -76,8 +70,8 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
-//No help, variable specified on the command line.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
+//Enable/Disable output of compile commands during generation.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=E:/Rendener/build/CMakeFiles/pkgRedirects
@@ -91,8 +85,8 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Renderer
 //Path to a program.
 CMAKE_LINKER:FILEPATH=D:/MINGW/bin/ld.exe
 
-//Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=D:/MINGW/bin/mingw32-make.exe
+//Program used to build from build.ninja files.
+CMAKE_MAKE_PROGRAM:FILEPATH=D:/MINGW/bin/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -238,8 +232,6 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=26
 //Patch version of cmake used to create the current loaded cache
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
-//ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
-CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=D:/MINGW/bin/cmake.exe
 //Path to cpack program executable.
@@ -278,10 +270,12 @@ CMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS
+CMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=
 //Name of generator.
-CMAKE_GENERATOR:INTERNAL=MinGW Makefiles
+CMAKE_GENERATOR:INTERNAL=Ninja
 //Generator instance identifier.
 CMAKE_GENERATOR_INSTANCE:INTERNAL=
 //Name of generator platform.

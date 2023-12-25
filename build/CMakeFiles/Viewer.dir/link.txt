@@ -1,3 +1,0 @@
-D:\MINGW\bin\cmake.exe -E rm -f CMakeFiles\Viewer.dir/objects.a
-D:\MINGW\bin\ar.exe qc CMakeFiles\Viewer.dir/objects.a @CMakeFiles\Viewer.dir\objects1.rsp
-D:\MINGW\bin\gcc.exe -O3 -DNDEBUG -flto=auto -fno-fat-lto-objects -Wl,--whole-archive CMakeFiles\Viewer.dir/objects.a -Wl,--no-whole-archive -o Viewer.exe -Wl,--out-implib,libViewer.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Viewer.dir\linkLibs.rsp
