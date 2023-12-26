@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "macro.h"
-#include "maths.h"
-#include "graphics.h"
+#include "macro.hpp"
+#include "maths.hpp"
+#include "graphics.hpp"
 
 namespace core
 {

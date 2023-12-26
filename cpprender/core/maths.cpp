@@ -1,8 +1,8 @@
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>
-#include "macro.h"
-#include "maths.h"
+#include "macro.hpp"
+#include "maths.hpp"
 
 namespace core{
 
