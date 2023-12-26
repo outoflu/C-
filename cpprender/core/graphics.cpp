@@ -114,7 +114,7 @@ namespace core
         NEGATIVE_Z
     };
 
-    static int is_inside_plane(vec4_t coord, plane_t plane)
+    static int is_inside_plane(const vec4_t &coord, plane_t plane)
     {
         switch (plane)
         {
@@ -138,7 +138,7 @@ namespace core
         }
     }
 
-    static float get_intersect_ratio(vec4_t prev, vec4_t curr, plane_t plane)
+    static float get_intersect_ratio(const vec4_t &prev, const vec4_t &curr, plane_t plane)
     {
         switch (plane)
         {
@@ -316,7 +316,7 @@ namespace core
      *     vec3_t ac = vec3_sub(c, a);
      *     return vec3_cross(ab, ac).z <= 0;
      */
-    static int is_back_facing(vec3_t ndc_coords[3])
+    static int is_back_facing(const vec3_t ndc_coords[3])
     {
         vec3_t a = ndc_coords[0];
         vec3_t b = ndc_coords[1];
@@ -331,7 +331,7 @@ namespace core
      * for viewport transformation, see subsection 2.12.1 of
      * https://www.khronos.org/registry/OpenGL/specs/es/2.0/es_full_spec_2.0.pdf
      */
-    static vec3_t viewport_transform(int width, int height, vec3_t ndc_coord)
+    static vec3_t viewport_transform(int width, int height, const vec3_t &ndc_coord)
     {
         float x = (ndc_coord.x + 1) * 0.5f * (float)width;  /* [-1, 1] -> [0, w] */
         float y = (ndc_coord.y + 1) * 0.5f * (float)height; /* [-1, 1] -> [0, h] */
@@ -422,7 +422,7 @@ namespace core
     template <typename _Varyings>
     static void interpolate_varyings(
         _Varyings src_varyings[3], _Varyings &dst_varyings,
-        vec3_t weights, float recip_w[3])
+        const vec3_t &weights, float recip_w[3])
     {
         int num_floats = sizeof(_Varyings) / sizeof(float);
         float *src0 = (float *)&src_varyings[0];
@@ -442,13 +442,144 @@ namespace core
         }
     }
 
-    template<typename _Attribs,typename _Varyings,typename _Uniforms>
-    static void draw_fragment(framebuffer_t& framebuffer,program_t<_Attribs,_Varyings,_Uniforms>& program,int backface,int index,float depth){
-        int discard=0;
-        vec4_t color=program.fragment_shader(program.shader_varyings,program.shader_uniforms,&discard,backface);
-        if (discard){
-            return ;
+    template <typename _Attribs, typename _Varyings, typename _Uniforms>
+    static void draw_fragment(framebuffer_t &framebuffer, program_t<_Attribs, _Varyings, _Uniforms> &program, int backface, int index, float depth)
+    {
+        int discard = 0;
+        vec4_t color = program.fragment_shader(program.shader_varyings, program.shader_uniforms, &discard, backface);
+        if (discard)
+        {
+            return;
         }
-        color=vec4_saturate(color);
+        color = vec4_saturate(color);
+
+        if (program.enable_blend)
+        {
+            unsigned char dst_r = framebuffer.color_buffer[index * 4 + 0];
+            unsigned char dst_g = framebuffer.color_buffer[index * 4 + 1];
+            unsigned char dst_b = framebuffer.color_buffer[index * 4 + 2];
+            color.x = color.x * color.w + float_from_uchar(dst_r) * (1 - color.w);
+            color.y = color.y * color.w + float_from_uchar(dst_g) * (1 - color.w);
+            color.z = color.z * color.w + float_from_uchar(dst_b) * (1 - color.w);
+        }
+
+        framebuffer.color_buffer[index * 4 + 0] = float_to_uchar(color.x);
+        framebuffer.color_buffer[index * 4 + 1] = float_to_uchar(color.y);
+        framebuffer.color_buffer[index * 4 + 2] = float_to_uchar(color.z);
+        framebuffer.depth_buffer[index] = depth;
+    }
+
+    template <typename _Attribs, typename _Varyings, typename _Uniforms>
+    static int rasterize_triangle(framebuffer_t &framebuffer, program_t<_Attribs, _Varyings, _Uniforms> &program, const vec4_t clip_coords[3], _Varyings varyings[3])
+    {
+        int width = framebuffer.width;
+        int height = framebuffer.height;
+        vec3_t ndc_coords[3];
+        vec2_t screen_coords[3];
+        float screen_depths[3];
+        float recip_w[3];
+        int backface;
+        bbox_t bbox;
+        int i, x, y;
+
+        /* perspective division */
+        for (i = 0; i < 3; i++)
+        {
+            vec3_t clip_coord = vec3_from_vec4(clip_coords[i]);
+            ndc_coords[i] = vec3_div(clip_coord, clip_coords[i].w);
+        }
+
+        /* back-face culling */
+        backface = is_back_facing(ndc_coords);
+        if (backface && !program->double_sided)
+        {
+            return 1;
+        }
+
+        /* reciprocals of w */
+        for (i = 0; i < 3; i++)
+        {
+            recip_w[i] = 1 / clip_coords[i].w;
+        }
+
+        /* viewport mapping */
+        for (i = 0; i < 3; i++)
+        {
+            vec3_t window_coord = viewport_transform(width, height, ndc_coords[i]);
+            screen_coords[i] = vec2_new(window_coord.x, window_coord.y);
+            screen_depths[i] = window_coord.z;
+        }
+
+        /* perform rasterization */
+        bbox = find_bounding_box(screen_coords, width, height);
+        for (x = bbox.min_x; x <= bbox.max_x; x++)
+        {
+            for (y = bbox.min_y; y <= bbox.max_y; y++)
+            {
+                vec2_t point = vec2_new((float)x + 0.5f, (float)y + 0.5f);
+                vec3_t weights = calculate_weights(screen_coords, point);
+                int weight0_okay = weights.x > -EPSILON;
+                int weight1_okay = weights.y > -EPSILON;
+                int weight2_okay = weights.z > -EPSILON;
+                if (weight0_okay && weight1_okay && weight2_okay)
+                {
+                    int index = y * width + x;
+                    float depth = interpolate_depth(screen_depths, weights);
+                    /* early depth testing */
+                    if (depth <= framebuffer->depth_buffer[index])
+                    {
+                        interpolate_varyings(varyings, program.shader_varyings,
+                                             program.sizeof_varyings,
+                                             weights, recip_w);
+                        draw_fragment(framebuffer, program, backface, index, depth);
+                    }
+                }
+            }
+        }
+
+        return 0;
+    }
+
+    template <typename _Attribs, typename _Varyings, typename _Uniforms>
+    void graphics_draw_triangle(framebuffer_t &framebuffer, program_t<_Attribs, _Varyings, _Uniforms> &program)
+    {
+        int num_vertices;
+        int i;
+        /* execute vertex shader */
+        for (i = 0; i < 3; i++)
+        {
+            vec4_t clip_coord = program.vertex_shader(program.shader_attribs[i],
+                                                       program.in_varyings[i],
+                                                       program.shader_uniforms);
+            program.in_coords[i] = clip_coord;
+        }
+
+        /* triangle clipping */
+        num_vertices = clip_triangle(program);
+
+        /* triangle assembly */
+        for (i = 0; i < num_vertices - 2; i++)
+        {
+            int index0 = 0;
+            int index1 = i + 1;
+            int index2 = i + 2;
+            vec4_t clip_coords[3];
+            _Varyings varyings[3];
+            int is_culled;
+
+            clip_coords[0] = program.out_coords[index0];
+            clip_coords[1] = program.out_coords[index1];
+            clip_coords[2] = program.out_coords[index2];
+            varyings[0] = program.out_varyings[index0];
+            varyings[1] = program.out_varyings[index1];
+            varyings[2] = program.out_varyings[index2];
+
+            is_culled = rasterize_triangle(framebuffer, program,
+                                           clip_coords, varyings);
+            if (is_culled)
+            {
+                break;
+            }
+        }
     }
 } // core
