@@ -44,14 +44,14 @@ struct program_t {
     int double_sided;
     int enable_blend;
     /* for shaders */
-    _Attribs* shader_attribs[3];
-    _Varyings* shader_varyings;
-    _Uniforms* shader_uniforms;
+    _Attribs shader_attribs[3];
+    _Varyings  shader_varyings;
+    _Uniforms  shader_uniforms;
     /* for clipping */
     vec4_t in_coords[MAX_VARYINGS];
     vec4_t out_coords[MAX_VARYINGS];
-    _Varyings* in_varyings[MAX_VARYINGS];
-    _Varyings* out_varyings[MAX_VARYINGS];
+    _Varyings in_varyings[MAX_VARYINGS];
+    _Varyings out_varyings[MAX_VARYINGS];
 
     program_t(vertex_shader_t,fragment_shader_t,int double_sided,int enable_blend);
     ~program_t();

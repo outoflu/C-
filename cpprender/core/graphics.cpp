@@ -75,30 +75,24 @@ namespace core
         this->enable_blend = _enable_blend;
 
         // clean shader_attribs
-        for (int i=0;i<3;++i){
-            shader_attribs[i]=new _Attribs();
-            memset(shader_attribs[i],0,sizeof(_Attribs));
-        }
+        memset(shader_attribs, 0, sizeof(shader_attribs));
+        
         // clean varyings
-        shader_varyings=new _Varyings();
-        memset(shader_varyings,0,sizeof(_Varyings));
-        // clean uniforms
-        shader_uniforms=new _Uniforms();
-        memset(shader_uniforms,0,sizeof(_Uniforms));
+        memset(&shader_varyings, 0, sizeof(shader_varyings));
 
-        for (int i=0;i<MAX_VARYINGS;++i){
-            in_varyings[i]=new _Varyings();
-            // clean in_varyings
-            memset(in_varyings.at(i),0,sizeof(_Varyings));
-            out_varyings[i]=new _Varyings();
-            // clean out_varyings
-            memset(out_varyings[i],0,sizeof(_Varyings));
-        }
+        // clean uniforms
+        memset(&shader_uniforms, 0, sizeof(shader_uniforms));
+
+        // clean in_varyings
+        memset(in_varyings, 0, sizeof(in_coords));
+
+        // clean out_varyings
+        memset(out_varyings, 0, sizeof(out_varyings));
        
     }
 
     template<typename _Attribs, typename _Varyings, typename _Uniforms>
-    core::program_t<_Attribs, _Varyings, _Uniforms>::~program_t()
+    program_t<_Attribs, _Varyings, _Uniforms>::~program_t()
     {
         int i;
         for (i = 0; i < 3; i++) {
@@ -115,13 +109,13 @@ namespace core
     _Attribs& program_t<_Attribs, _Varyings, _Uniforms>::get_attribs(int nth_vertex)
     {
         assert(nth_vertex >= 0 && nth_vertex < 3);
-        return shader_attribs[nth_vertex];
+        return &shader_attribs[nth_vertex];
     }
 
     template <typename _Attribs, typename _Varyings, typename _Uniforms>
     _Uniforms& program_t<_Attribs, _Varyings, _Uniforms>::get_uniforms()
     {
-        return shader_uniforms;
+        return &shader_uniforms;
     }
 
     enum plane_t
