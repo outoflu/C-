@@ -2,6 +2,7 @@
 #define _TEXTURE_H
 
 #include "graphics.hpp"
+#include "image.hpp"
 #include "maths.hpp"
 #include <array>
 
@@ -15,11 +16,16 @@ namespace core{
     };
 
     class texture_t{
-    public:
+    private:
         int width,height;
+    public:
         vec4_t* buffer;
         texture_t(int _width,int _height);
         texture_t(const char* filename,usage_t usage);
+        void set_width(int _width);
+        void set_height(int _width);
+        int get_width();
+        int get_height();
         ~texture_t();
         void texture_from_colorbuffer(framebuffer_t& framebuffer);
         void texture_from_depthbuffer(framebuffer_t& framebuffer);
@@ -33,7 +39,8 @@ namespace core{
         void linear_to_srgb();
     };
 
-    struct cubemap_t{
+    class cubemap_t{
+    public:
         std::array<texture_t*,6> faces;
         cubemap_t(const char *positive_x, const char *negative_x,
                   const char *positive_y, const char *negative_y,
