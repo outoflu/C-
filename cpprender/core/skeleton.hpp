@@ -28,9 +28,21 @@ namespace core
         /* interpolated */
         mat4_t transform;
         void load_joint(FILE* file);
+    private:
+        void read_inverse_bind(FILE* file);
+        void read_translations(FILE* file);
+        void read_rotations(FILE* file);
+        void read_scales(FILE* file);
+    public:
+        joint_t();
+        joint_t(FILE* file);
+        ~joint_t();
+        vec3_t get_translation(float frame_time)const;
+        quat_t get_rotation(float frame_time)const;
+        vec3_t get_scale(float frame_time) const;
     };
 
-    class skeleton
+    class skeleton_t
     {
     public:
         float min_time;
@@ -41,11 +53,15 @@ namespace core
         mat4_t *joint_matrices;
         mat3_t *normal_matrices;
         float last_time;
-        skeleton(const char* filename);
+        skeleton_t(const char* filename);
+    private:
         void initialize_cache();
         void skeleton_load(const char* filename);
         void skeleton_update_joints(float frame_time);
-        ~skeleton();
+        mat4_t* skeleton_get_joint_matrices();
+        mat3_t* skeleton_get_normal_matrices();
+    public:
+        ~skeleton_t();
     private:
         void load_ani(const char* filename);
     };
