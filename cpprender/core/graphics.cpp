@@ -84,26 +84,16 @@ namespace core
         memset(&shader_uniforms, 0, sizeof(shader_uniforms));
 
         // clean in_varyings
-        memset(in_varyings, 0, sizeof(in_coords));
+        memset(in_varyings, 0, sizeof(_Varyings)*MAX_VARYINGS);
 
         // clean out_varyings
-        memset(out_varyings, 0, sizeof(out_varyings));
+        memset(out_varyings, 0, sizeof(_Varyings)*MAX_VARYINGS);
        
     }
 
     template<typename _Attribs, typename _Varyings, typename _Uniforms>
     program_t<_Attribs, _Varyings, _Uniforms>::~program_t()
     {
-        int i;
-        for (i = 0; i < 3; i++) {
-            delete shader_attribs[i];
-        }
-        delete program->shader_varyings;
-        delete program->shader_uniforms;
-        for (i = 0; i < MAX_VARYINGS; i++) {
-            delete in_varyings[i];
-            delete out_varyings[i];
-        }
     }
     template <typename _Attribs, typename _Varyings, typename _Uniforms>
     _Attribs& program_t<_Attribs, _Varyings, _Uniforms>::get_attribs(int nth_vertex)
