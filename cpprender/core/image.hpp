@@ -26,7 +26,11 @@ namespace core
         image_t(int width, int height, int channels, format_t format);
         void image_create(int width, int height, int channels, format_t format);
         void image_load(const char *filename);
+        void load_tga_rle_payload(FILE* file);
         void load_tga_image(const char* filename);
+        void read_hdr_flat_scanline(FILE* file,int row);
+        void read_hdr_rle_scanline(FILE* file,int row);
+        void read_hdr_scanline(FILE* file,int row);
         void load_hdr_image(const char* filename);
         void image_save(const char *filename);
         void save_tga_image(const char* filename);
